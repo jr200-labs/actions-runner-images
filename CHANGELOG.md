@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.3.0](https://github.com/jr200-labs/actions-runner-images/compare/v0.2.0...v0.3.0) (2026-04-24)
+
+
+### Features
+
+* **base:** install gh CLI + jq in runner image ([#8](https://github.com/jr200-labs/actions-runner-images/issues/8)) ([f0669d0](https://github.com/jr200-labs/actions-runner-images/commit/f0669d0d8db5d5f800c412598b1d2f911effae9e))
+
 ## [0.2.0](https://github.com/jr200-labs/actions-runner-images/compare/v0.1.0...v0.2.0) (2026-04-24)
 
 
