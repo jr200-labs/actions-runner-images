@@ -24,13 +24,17 @@ on:
         default: ''
         options: ['', full, extract, lookup]
 
+# Only caller top-level permissions cascade into reusable workflows
+# (job-level permissions on a `uses:` job don't propagate). Declare
+# everything renovate needs here.
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+
 jobs:
   renovate:
     uses: jr200-labs/github-action-templates/.github/workflows/renovate.yaml@master
-    permissions:
-      contents: write
-      pull-requests: write
-      issues: write
     with:
       log-level: ${{ inputs.log-level || 'info' }}
       dry-run: ${{ inputs.dry-run || '' }}
