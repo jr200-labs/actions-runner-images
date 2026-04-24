@@ -25,7 +25,14 @@ USER root
 # `npx playwright install-deps` at job time. Ubuntu 24.04 uses t64 suffix
 # for the libstdc++/time_t-transition packages (libasound2t64, libcups2t64,
 # libatk-bridge2.0-0t64, libatk1.0-0t64, libatspi2.0-0t64).
-# hadolint ignore=DL3008
+#
+# jq + gh are required by shared tooling in github-action-templates
+# (check-merge-settings.sh, release-please outputs, etc.). Whengas's
+# arc-linux-whengas pods were missing gh, which caused drift-check jobs
+# to fail with "gh: command not found" when the upstream actions-runner
+# base image changed between image rebuilds. Install explicitly so every
+# variant of the base layer carries them.
+# hadolint ignore=DL3008,DL3009,DL4006
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
         build-essential \
@@ -37,6 +44,7 @@ RUN apt-get update \
         ca-certificates \
         curl \
         git \
+        jq \
         libnspr4 \
         libnss3 \
         libatk1.0-0t64 \
@@ -53,6 +61,14 @@ RUN apt-get update \
         libcairo2 \
         libasound2t64 \
         libatspi2.0-0t64 \
+    && install -m 0755 -d /etc/apt/keyrings \
+    && curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg \
+        | tee /etc/apt/keyrings/githubcli-archive-keyring.gpg > /dev/null \
+    && chmod go+r /etc/apt/keyrings/githubcli-archive-keyring.gpg \
+    && echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/githubcli-archive-keyring.gpg] https://cli.github.com/packages stable main" \
+        > /etc/apt/sources.list.d/github-cli.list \
+    && apt-get update \
+    && apt-get install -y --no-install-recommends gh \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
