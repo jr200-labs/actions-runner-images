@@ -20,6 +20,11 @@ ARG BUILD_ARCH
 
 USER root
 
+# Playwright chromium shared-lib deps (libnspr4, libnss3, libatk*, etc.)
+# let `playwright test` launch headless chromium without
+# `npx playwright install-deps` at job time. Ubuntu 24.04 uses t64 suffix
+# for the libstdc++/time_t-transition packages (libasound2t64, libcups2t64,
+# libatk-bridge2.0-0t64, libatk1.0-0t64, libatspi2.0-0t64).
 # hadolint ignore=DL3008
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -32,6 +37,22 @@ RUN apt-get update \
         ca-certificates \
         curl \
         git \
+        libnspr4 \
+        libnss3 \
+        libatk1.0-0t64 \
+        libatk-bridge2.0-0t64 \
+        libcups2t64 \
+        libdrm2 \
+        libxkbcommon0 \
+        libxcomposite1 \
+        libxdamage1 \
+        libxfixes3 \
+        libxrandr2 \
+        libgbm1 \
+        libpango-1.0-0 \
+        libcairo2 \
+        libasound2t64 \
+        libatspi2.0-0t64 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
