@@ -1,7 +1,7 @@
 # actions-runner-images
 
-Custom GitHub Actions runner images used by the `jr200-labs` and `whengas`
-self-hosted ARC (Actions Runner Controller) deployments.
+Custom GitHub Actions runner images for self-hosted ARC (Actions Runner
+Controller) deployments.
 
 Extends the upstream `ghcr.io/actions/actions-runner` base with build
 tooling so jobs that compile native Python wheels (e.g. `mariadb`,
@@ -13,8 +13,8 @@ tooling so jobs that compile native Python wheels (e.g. `mariadb`,
 |-------|-----------------------------|-----------------------------------------------------------|
 | base  | `images/base/Dockerfile`    | Ubuntu runner + build-essential + MariaDB/SSL dev headers |
 
-Consumed from `whengas/whengas-iac` via `services/arc-runners-*/env/base/values.yaml`
-`template.spec.containers[name=runner].image`.
+Consumed from downstream IaC by pinning the `runner` container image in
+the ARC `AutoscalingRunnerSet` values.
 
 ## Layout
 

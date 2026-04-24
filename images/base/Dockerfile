@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1.7
 
-# Base runner image for jr200-labs + whengas ARC (Actions Runner Controller).
+# Base runner image for ARC (Actions Runner Controller).
 #
 # Extends the upstream actions/actions-runner image with build tooling so
 # pip jobs that compile C extensions (e.g. mariadb, cryptography) succeed

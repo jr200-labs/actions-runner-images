@@ -1,14 +1,14 @@
 # actions-runner-images — AGENTS.md
 
-Scope: custom runner images for jr200-labs + whengas self-hosted ARC.
+Scope: custom runner images for self-hosted ARC.
 
 ## Non-negotiable rules
 
 1. **No project-specific data.** This repo lives under `jr200-labs/`,
-   which is the generic tooling org. Never mention `whengas`, vessel
-   names, LNG, shipping, or any other downstream-project concern in code,
-   tests, or docs. Refer to consumers as "downstream callers" if you
-   must reference them.
+   the generic tooling org. Never mention downstream project names,
+   domain concepts, or any consumer-specific detail in code, tests, or
+   docs. Refer to consumers as "downstream callers" if you must
+   reference them.
 2. **Conventional commits only.** `feat:`, `fix:`, `build:`, `ci:`,
    `docs:`, `chore:`. Anything else breaks release-please's changelog
    routing. Squash-merge PRs (enforced in repo settings).
@@ -55,8 +55,8 @@ Tags become `base-v1.2.3`, `rust-v0.4.0`.
 3. For multi-image phase: update `release-please-config.json` to
    manifest mode and duplicate the build dispatch job in
    `release-please.yaml` for the new variant.
-4. Update consumer `whengas-iac` runner set values once the image is
-   tagged.
+4. Update downstream IaC runner set values once the new image tag is
+   published.
 
 ## Shared config sync
 
@@ -84,5 +84,5 @@ org or repo level.
 
 - `jr200-labs/github-action-templates` — reusable workflows + shared
   configs this repo consumes.
-- `whengas/whengas-iac` — ARC deployment (`services/arc-runners-*`)
-  that pulls images from this repo.
+- Downstream IaC repos pin the published image on their ARC
+  `AutoscalingRunnerSet` — out of scope for this repo.

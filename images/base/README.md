@@ -25,8 +25,6 @@ Expect ~200–300 MiB above the upstream base after the apt layer.
 
 ## Consumers
 
-- `whengas/whengas-iac/services/arc-runners-whengas/env/base/values.yaml`
-- `whengas/whengas-iac/services/arc-runners-jr200-labs/env/base/values.yaml`
-
-Both should pin `ghcr.io/jr200-labs/actions-runner-images:vX.Y.Z`.
-Renovate auto-bumps on new releases.
+Downstream IaC repos pin `ghcr.io/jr200-labs/actions-runner-images:vX.Y.Z`
+on their `AutoscalingRunnerSet` `runner` container. Renovate auto-bumps
+on new releases.
