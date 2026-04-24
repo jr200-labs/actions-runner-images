@@ -1,0 +1,14 @@
+name: ci
+
+on:
+  pull_request:
+    branches: [master]
+
+jobs:
+  hadolint:
+    uses: jr200-labs/github-action-templates/.github/workflows/lint_docker.yaml@master
+    with:
+      recursive: true
+
+  commitlint:
+    uses: jr200-labs/github-action-templates/.github/workflows/lint_commits.yaml@master

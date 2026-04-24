@@ -1,0 +1,15 @@
+# Shared cache dir populated by .shared/sync.sh (re-fetched in CI)
+.shared/
+
+# hadolint config copied in at CI time from .shared/.hadolint.yaml
+# (see .github/workflows/lint_docker.yaml). Root-committed overrides
+# by the user are fine — sync leaves them alone.
+.hadolint.yaml
+
+# macOS
+.DS_Store
+
+# Editors
+.vscode/
+.idea/
+*.swp

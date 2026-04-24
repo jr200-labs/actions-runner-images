@@ -1,0 +1,39 @@
+name: renovate
+
+# Self-hosted Renovate via the shared template at
+# jr200-labs/github-action-templates. Per-repo behaviour is configured
+# via this repo's renovate.json which extends
+# `github>jr200-labs/github-action-templates`.
+
+on:
+  schedule:
+    # Daily at 03:00 UTC — image rebuilds don't need higher frequency.
+    - cron: '0 3 * * *'
+  workflow_dispatch:
+    inputs:
+      log-level:
+        description: Renovate log level
+        required: false
+        type: choice
+        default: info
+        options: [info, debug, trace]
+      dry-run:
+        description: Renovate dry-run mode (leave empty for normal)
+        required: false
+        type: choice
+        default: ''
+        options: ['', full, extract, lookup]
+
+jobs:
+  renovate:
+    uses: jr200-labs/github-action-templates/.github/workflows/renovate.yaml@master
+    permissions:
+      contents: write
+      pull-requests: write
+      issues: write
+    with:
+      log-level: ${{ inputs.log-level || 'info' }}
+      dry-run: ${{ inputs.dry-run || '' }}
+      runner: ${{ fromJSON(vars.RUNNER_PROFILES)[vars.RUNNER_PROFILE].default }}
+    secrets:
+      INTEGRATION_APP_PRIVATE_KEY: ${{ secrets.INTEGRATION_APP_PRIVATE_KEY }}
