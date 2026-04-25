@@ -1,0 +1,6 @@
+# See jr200-labs/github-action-templates/AGENTS.md for the catalogue
+# of available groups. helm-chart not yet canonical (JRL-32 phase 1.5).
+workflows:
+  - hygiene
+  - docker
+  - release
