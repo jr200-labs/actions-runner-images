@@ -32,6 +32,11 @@ USER root
 # to fail with "gh: command not found" when the upstream actions-runner
 # base image changed between image rebuilds. Install explicitly so every
 # variant of the base layer carries them.
+#
+# gettext-base provides `envsubst`, which sigstore/cosign-installer@v4+
+# invokes during install. Without it, the action exits 127 and any
+# workflow signing OCI artifacts (e.g. dotagents publish-oci-artifact)
+# fails before producing an image (JRL-38).
 # hadolint ignore=DL3008,DL3009,DL4006
 RUN apt-get update \
     && apt-get install -y --no-install-recommends \
@@ -43,6 +48,7 @@ RUN apt-get update \
         python3-dev \
         ca-certificates \
         curl \
+        gettext-base \
         git \
         jq \
         libnspr4 \
