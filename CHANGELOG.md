@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.3](https://github.com/jr200-labs/actions-runner-images/compare/v0.3.2...v0.3.3) (2026-04-29)
+
+
+### Bug Fixes
+
+* **base:** install yq for canonical multi-image caller (JRL-39) ([#23](https://github.com/jr200-labs/actions-runner-images/issues/23)) ([b55bdc7](https://github.com/jr200-labs/actions-runner-images/commit/b55bdc76d900d9f54c1f64056d509a60bf8f00b9))
+* resync canonical workflows for yq-step drop (JRL-39) ([#25](https://github.com/jr200-labs/actions-runner-images/issues/25)) ([93ac020](https://github.com/jr200-labs/actions-runner-images/commit/93ac0204d1ce6745dcd2f453c2738b892712b9ce))
+
 ## [0.3.2](https://github.com/jr200-labs/actions-runner-images/compare/v0.3.1...v0.3.2) (2026-04-29)
 
 
