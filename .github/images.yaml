@@ -1,0 +1,8 @@
+# Images this repo builds + publishes to GHCR.
+# Read by the canonical build-docker-image.yaml caller (JRL-39); each
+# entry produces ghcr.io/<owner>/<name>:<tag>. Add sibling variants
+# (rust, go, etc.) here as new entries — same caller, no workflow
+# changes needed.
+images:
+  - name: actions-runner-images
+    dockerfile: images/base/Dockerfile
