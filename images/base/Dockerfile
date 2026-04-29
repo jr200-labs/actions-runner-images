@@ -78,4 +78,17 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
+# yq is a YAML processor used by canonical caller workflows (e.g.
+# build-docker-image.yaml's discover-images job parses
+# .github/images.yaml — JRL-39). Distributed as a single static
+# binary, not in apt, so install directly. Pinned via Renovate (regex
+# manager on this RUN line).
+# renovate: datasource=github-tags depName=mikefarah/yq
+ARG YQ_VERSION=v4.53.2
+# hadolint ignore=DL4006
+RUN ARCH=$(dpkg --print-architecture) \
+    && curl -fsSL "https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_${ARCH}" \
+        -o /usr/local/bin/yq \
+    && chmod 0755 /usr/local/bin/yq
+
 USER runner
