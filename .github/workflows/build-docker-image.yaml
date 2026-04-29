@@ -51,6 +51,10 @@ jobs:
       checkout-ref: ${{ fromJson(needs.configure.outputs.context).checkout-ref }}
       registry_name: ghcr.io
       image_name: ${{ github.repository }}
+      # Reusable defaults to ./Dockerfile or docker/Dockerfile; this
+      # repo's lives at images/base/Dockerfile (mirrors agent-images
+      # multi-image layout) so set it explicitly.
+      dockerfile: images/base/Dockerfile
       tag: ${{ fromJson(needs.configure.outputs.context).tag }}
       platforms: ${{ fromJson(needs.configure.outputs.context).platforms }}
     secrets:
