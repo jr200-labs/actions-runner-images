@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.1](https://github.com/jr200-labs/actions-runner-images/compare/v0.3.0...v0.3.1) (2026-04-29)
+
+
+### Bug Fixes
+
+* **base:** install gettext-base for cosign-installer@v4 (JRL-38) ([#16](https://github.com/jr200-labs/actions-runner-images/issues/16)) ([b68ee46](https://github.com/jr200-labs/actions-runner-images/commit/b68ee467e37f4696212d7f08b054f08339881c0f))
+* **release:** set release-type=simple in release-please-config ([#17](https://github.com/jr200-labs/actions-runner-images/issues/17)) ([0cd3ce3](https://github.com/jr200-labs/actions-runner-images/commit/0cd3ce310f472b1974e62e70a85067d183ffff88))
+
 ## [0.3.0](https://github.com/jr200-labs/actions-runner-images/compare/v0.2.0...v0.3.0) (2026-04-24)
 
 
