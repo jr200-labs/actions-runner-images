@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.3.2](https://github.com/jr200-labs/actions-runner-images/compare/v0.3.1...v0.3.2) (2026-04-29)
+
+
+### Features
+
+* migrate to canonical multi-image build caller (JRL-39) ([#20](https://github.com/jr200-labs/actions-runner-images/issues/20)) ([e5c445b](https://github.com/jr200-labs/actions-runner-images/commit/e5c445b37161e543fae5e2c39614e6b66655a8b2))
+
+
+### Bug Fixes
+
+* resync canonical workflows for yq tag fix (JRL-39) ([#22](https://github.com/jr200-labs/actions-runner-images/issues/22)) ([2439ab1](https://github.com/jr200-labs/actions-runner-images/commit/2439ab1a51a680e8dd9b026af86ad8c10982d8ad))
+
 ## [0.3.1](https://github.com/jr200-labs/actions-runner-images/compare/v0.3.0...v0.3.1) (2026-04-29)
 
 
