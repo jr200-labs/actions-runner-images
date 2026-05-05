@@ -1,4 +1,4 @@
-# syntax=docker/dockerfile:1.7
+# syntax=docker/dockerfile:1.23
 
 # Base runner image for ARC (Actions Runner Controller).
 #
