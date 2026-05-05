@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.3.4](https://github.com/jr200-labs/actions-runner-images/compare/v0.3.3...v0.3.4) (2026-05-05)
+
+
+### Features
+
+* **deps:** update actions/checkout action to v6 ([#29](https://github.com/jr200-labs/actions-runner-images/issues/29)) ([340bbbb](https://github.com/jr200-labs/actions-runner-images/commit/340bbbb06b14e9b34790036273f4cc37538e0e4b))
+* pass build-contexts down to docker build job ([#31](https://github.com/jr200-labs/actions-runner-images/issues/31)) ([289567c](https://github.com/jr200-labs/actions-runner-images/commit/289567cb6b3653c2dc17468acab144ef345ac6cc))
+
+
+### Bug Fixes
+
+* resync canonical workflows for build_secrets passthrough (JRL-39) ([#28](https://github.com/jr200-labs/actions-runner-images/issues/28)) ([829793a](https://github.com/jr200-labs/actions-runner-images/commit/829793ac27ca7077408dd0a5437e811e4fb26000))
+* resync canonical workflows for context passthrough (JRL-39) ([#26](https://github.com/jr200-labs/actions-runner-images/issues/26)) ([94ca93a](https://github.com/jr200-labs/actions-runner-images/commit/94ca93a8284374f8d792680bc4d48ed82cc9a45a))
+
 ## [0.3.3](https://github.com/jr200-labs/actions-runner-images/compare/v0.3.2...v0.3.3) (2026-04-29)
 
 
