@@ -9,9 +9,7 @@
 # Keep this image minimal. Per-variant extras (rust toolchain, go etc.)
 # belong in sibling images/<variant>/Dockerfile layers that FROM this one.
 
-ARG BASE_IMAGE=ghcr.io/actions/actions-runner
-ARG BASE_TAG=latest
-FROM ${BASE_IMAGE}:${BASE_TAG}
+FROM ghcr.io/actions/actions-runner:2.336.0
 
 # Build args consumed by build_docker_image_multiplatform (informational;
 # the image itself is arch-agnostic — apt picks the right arch at install).
@@ -27,11 +25,8 @@ USER root
 # libatk-bridge2.0-0t64, libatk1.0-0t64, libatspi2.0-0t64).
 #
 # jq + gh are required by shared tooling in github-action-templates
-# (check-merge-settings.sh, release-please outputs, etc.). Whengas's
-# arc-linux-whengas pods were missing gh, which caused drift-check jobs
-# to fail with "gh: command not found" when the upstream actions-runner
-# base image changed between image rebuilds. Install explicitly so every
-# variant of the base layer carries them.
+# (check-merge-settings.sh, release-please outputs, etc.). Install them
+# explicitly so every variant of the base layer carries them.
 #
 # gettext-base provides `envsubst`, which sigstore/cosign-installer@v4+
 # invokes during install. Without it, the action exits 127 and any
