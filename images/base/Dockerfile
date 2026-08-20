@@ -79,7 +79,7 @@ RUN apt-get update \
 # binary, not in apt, so install directly. Pinned via Renovate (regex
 # manager on this RUN line).
 # renovate: datasource=github-tags depName=mikefarah/yq
-ARG YQ_VERSION=v4.53.3
+ARG YQ_VERSION=v4.53.6
 # hadolint ignore=DL4006
 RUN ARCH=$(dpkg --print-architecture) \
     && curl -fsSL "https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_${ARCH}" \
