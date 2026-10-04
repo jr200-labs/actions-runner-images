@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.3.6](https://github.com/jr200-labs/actions-runner-images/compare/v0.3.5...v0.3.6) (2026-10-04)
+
+
+### Bug Fixes
+
+* **deps:** update dependency jr200-labs/github-action-templates to shared-v0.1.37 ([#60](https://github.com/jr200-labs/actions-runner-images/issues/60)) ([e550015](https://github.com/jr200-labs/actions-runner-images/commit/e5500152ec3a5969a0503750b96de17a8dd71b82))
+* **deps:** update dependency jr200-labs/github-action-templates to shared-v0.1.38 ([#62](https://github.com/jr200-labs/actions-runner-images/issues/62)) ([98e326e](https://github.com/jr200-labs/actions-runner-images/commit/98e326ea1df9837cc66aff35e1b386c5136dd725))
+* **deps:** update dependency jr200-labs/github-action-templates to shared-v0.1.39 ([#65](https://github.com/jr200-labs/actions-runner-images/issues/65)) ([306d5b7](https://github.com/jr200-labs/actions-runner-images/commit/306d5b772ab1a32379b833c9bd60f3d6778d71c1))
+* **deps:** update dependency mikefarah/yq to v4.54.1 ([#63](https://github.com/jr200-labs/actions-runner-images/issues/63)) ([341d4cd](https://github.com/jr200-labs/actions-runner-images/commit/341d4cd6ff74eb714a14e3946948a4a4114a339d))
+* **deps:** update docker base images ([#64](https://github.com/jr200-labs/actions-runner-images/issues/64)) ([fd1fdfd](https://github.com/jr200-labs/actions-runner-images/commit/fd1fdfdd3ae125eed18741f9dc77ea7073bbaa80))
+
 ## [0.3.5](https://github.com/jr200-labs/actions-runner-images/compare/v0.3.4...v0.3.5) (2026-08-11)
 
 
