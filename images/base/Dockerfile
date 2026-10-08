@@ -1,4 +1,4 @@
-# syntax=docker/dockerfile:1.27
+# syntax=docker/dockerfile:1.28
 
 # Base runner image for ARC (Actions Runner Controller).
 #
@@ -9,7 +9,7 @@
 # Keep this image minimal. Per-variant extras (rust toolchain, go etc.)
 # belong in sibling images/<variant>/Dockerfile layers that FROM this one.
 
-FROM ghcr.io/actions/actions-runner:2.337.0
+FROM ghcr.io/actions/actions-runner:2.338.0
 
 # Build args consumed by build_docker_image_multiplatform (informational;
 # the image itself is arch-agnostic — apt picks the right arch at install).
