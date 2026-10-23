@@ -16,4 +16,5 @@ jobs:
   hadolint:
     uses: jr200-labs/github-action-templates/.github/workflows/lint_docker.yaml@master
     with:
+      runner: ${{ fromJSON(vars.RUNNER_PROFILES)[vars.RUNNER_PROFILE].default }}
       recursive: true
