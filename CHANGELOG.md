@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.3.7](https://github.com/jr200-labs/actions-runner-images/compare/v0.3.6...v0.3.7) (2026-11-08)
+
+
+### Features
+
+* **ci:** preinstall pinned CI tools in the runner image ([#76](https://github.com/jr200-labs/actions-runner-images/issues/76)) ([66d28bf](https://github.com/jr200-labs/actions-runner-images/commit/66d28bf074dee8ac105f1e206a280590f07688d4))
+
+
+### Bug Fixes
+
+* **deps:** update dependency jr200-labs/github-action-templates to shared-v0.1.93 ([#73](https://github.com/jr200-labs/actions-runner-images/issues/73)) ([918053b](https://github.com/jr200-labs/actions-runner-images/commit/918053b0440103170236a3128a5e3c4a45295557))
+* **deps:** update dependency mikefarah/yq to v4.54.2 ([#75](https://github.com/jr200-labs/actions-runner-images/issues/75)) ([1c708d7](https://github.com/jr200-labs/actions-runner-images/commit/1c708d7b257cee35d1b74255194f93517aa41543))
+* **deps:** update ghcr.io/actions/actions-runner docker tag to v2.338.2 ([#74](https://github.com/jr200-labs/actions-runner-images/issues/74)) ([2dc5e61](https://github.com/jr200-labs/actions-runner-images/commit/2dc5e6150f9c71bcb67e72f4eade91aa54f6f280))
+
 ## [0.3.6](https://github.com/jr200-labs/actions-runner-images/compare/v0.3.5...v0.3.6) (2026-10-24)
 
 
