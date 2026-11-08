@@ -83,7 +83,10 @@ RUN apt-get update \
 ARG YQ_VERSION=v4.54.1
 # hadolint ignore=DL4006
 RUN ARCH=$(dpkg --print-architecture) \
-    && curl -fsSL "https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_${ARCH}" \
+    && curl --fail --show-error --location \
+        --retry 5 --retry-delay 2 --retry-all-errors --retry-max-time 300 \
+        --connect-timeout 10 --max-time 120 \
+        "https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_${ARCH}" \
         -o /usr/local/bin/yq \
     && chmod 0755 /usr/local/bin/yq
 
