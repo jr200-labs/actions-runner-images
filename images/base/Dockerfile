@@ -9,7 +9,7 @@
 # Keep this image minimal. Per-variant extras (rust toolchain, go etc.)
 # belong in sibling images/<variant>/Dockerfile layers that FROM this one.
 
-FROM ghcr.io/actions/actions-runner:2.338.1
+FROM ghcr.io/actions/actions-runner:2.338.2
 
 # Build args consumed by build_docker_image_multiplatform (informational;
 # the image itself is arch-agnostic — apt picks the right arch at install).
