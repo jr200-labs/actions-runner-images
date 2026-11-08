@@ -11,10 +11,16 @@ tooling so jobs that compile native Python wheels (e.g. `mariadb`,
 
 | Image | Path                        | Purpose                                                   |
 |-------|-----------------------------|-----------------------------------------------------------|
-| base  | `images/base/Dockerfile`    | Ubuntu runner + build-essential + MariaDB/SSL dev headers |
+| base  | `images/base/Dockerfile`    | Ubuntu runner + native build headers + prebuilt CI tools |
 
 Consumed from downstream IaC by pinning the `runner` container image in
 the ARC `AutoscalingRunnerSet` values.
+
+The base includes pinned Cocogitto, actionlint, golangci-lint and a complete
+CodeQL bundle. CI jobs can reuse these executables without fetching release
+archives. See [base image details](images/base/README.md) for the tool-cache
+contract, version matching and image verification commands. Existing runners
+need the newly built image before these tools become available.
 
 ## Layout
 

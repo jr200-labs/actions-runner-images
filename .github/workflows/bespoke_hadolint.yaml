@@ -13,7 +13,14 @@ permissions:
   pull-requests: read
 
 jobs:
+  installer-tests:
+    runs-on: ${{ fromJSON(vars.RUNNER_PROFILES)[vars.RUNNER_PROFILE].default }}
+    steps:
+      - uses: actions/checkout@v7
+      - run: python3 scripts/test-ci-tools.py
+
   hadolint:
     uses: jr200-labs/github-action-templates/.github/workflows/lint_docker.yaml@master
     with:
       recursive: true
+      runner: ${{ fromJSON(vars.RUNNER_PROFILES)[vars.RUNNER_PROFILE].default }}

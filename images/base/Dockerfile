@@ -46,6 +46,7 @@ RUN apt-get update \
         gettext-base \
         git \
         jq \
+        file \
         libnspr4 \
         libnss3 \
         libatk1.0-0t64 \
@@ -82,8 +83,30 @@ RUN apt-get update \
 ARG YQ_VERSION=v4.54.2
 # hadolint ignore=DL4006
 RUN ARCH=$(dpkg --print-architecture) \
-    && curl -fsSL "https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_${ARCH}" \
+    && curl --fail --show-error --location \
+        --retry 5 --retry-delay 2 --retry-all-errors --retry-max-time 300 \
+        --connect-timeout 10 --max-time 120 \
+        "https://github.com/mikefarah/yq/releases/download/${YQ_VERSION}/yq_linux_${ARCH}" \
         -o /usr/local/bin/yq \
     && chmod 0755 /usr/local/bin/yq
+
+# CI executables are installed once per image, without compiler toolchains.
+# renovate: datasource=github-releases depName=cocogitto/cocogitto
+ARG COCOGITTO_VERSION=7.0.0
+# renovate: datasource=github-releases depName=rhysd/actionlint
+ARG ACTIONLINT_VERSION=v1.7.12
+# renovate: datasource=github-releases depName=golangci/golangci-lint
+ARG GOLANGCI_LINT_VERSION=v2.15.0
+# CodeQL uses bundle tags; regex versioning excludes Action release tags.
+# renovate: datasource=github-releases depName=github/codeql-action versioning=regex:^codeql-bundle-v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)$
+ARG CODEQL_VERSION=codeql-bundle-v2.27.4
+ARG TARGETARCH
+COPY scripts/install-ci-tools.sh /tmp/install-ci-tools.sh
+RUN bash /tmp/install-ci-tools.sh "$TARGETARCH" "$COCOGITTO_VERSION" \
+      "$ACTIONLINT_VERSION" "$GOLANGCI_LINT_VERSION" "${CODEQL_VERSION#codeql-bundle-}" \
+    && rm /tmp/install-ci-tools.sh \
+    && chown -R runner:runner /opt/hostedtoolcache
+
+ENV RUNNER_TOOL_CACHE=/opt/hostedtoolcache
 
 USER runner
