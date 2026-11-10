@@ -80,7 +80,7 @@ RUN apt-get update \
 # binary, not in apt, so install directly. Pinned via Renovate (regex
 # manager on this RUN line).
 # renovate: datasource=github-tags depName=mikefarah/yq
-ARG YQ_VERSION=v4.54.2
+ARG YQ_VERSION=v4.54.3
 # hadolint ignore=DL4006
 RUN ARCH=$(dpkg --print-architecture) \
     && curl --fail --show-error --location \
