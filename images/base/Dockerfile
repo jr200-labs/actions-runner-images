@@ -80,7 +80,7 @@ RUN apt-get update \
 # binary, not in apt, so install directly. Pinned via Renovate (regex
 # manager on this RUN line).
 # renovate: datasource=github-tags depName=mikefarah/yq
-ARG YQ_VERSION=v4.54.2
+ARG YQ_VERSION=v4.54.3
 # hadolint ignore=DL4006
 RUN ARCH=$(dpkg --print-architecture) \
     && curl --fail --show-error --location \
@@ -99,7 +99,7 @@ ARG ACTIONLINT_VERSION=v1.7.12
 ARG GOLANGCI_LINT_VERSION=v2.15.0
 # CodeQL uses bundle tags; regex versioning excludes Action release tags.
 # renovate: datasource=github-releases depName=github/codeql-action versioning=regex:^codeql-bundle-v(?<major>\d+)\.(?<minor>\d+)\.(?<patch>\d+)$
-ARG CODEQL_VERSION=codeql-bundle-v2.27.4
+ARG CODEQL_VERSION=codeql-bundle-v2.27.6
 ARG TARGETARCH
 COPY scripts/install-ci-tools.sh /tmp/install-ci-tools.sh
 RUN bash /tmp/install-ci-tools.sh "$TARGETARCH" "$COCOGITTO_VERSION" \
